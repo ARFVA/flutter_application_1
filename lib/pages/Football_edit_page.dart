@@ -62,7 +62,7 @@ class FootballEditPage extends StatelessWidget {
                       ),
                     ),
                     child: const Text(
-                      "Simpan",
+                      "Simpans",
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                   ),
