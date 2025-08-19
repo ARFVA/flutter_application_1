@@ -34,7 +34,10 @@ class FootballPages extends StatelessWidget {
                 elevation: 2,
                 margin: const EdgeInsets.symmetric(vertical: 6),
                 child: ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                    vertical: 8,
+                  ),
                   leading: CircleAvatar(
                     radius: 28,
                     backgroundImage: AssetImage(player.profileImage),
@@ -48,10 +51,7 @@ class FootballPages extends StatelessWidget {
                   ),
                   subtitle: Text(
                     '${player.posisi} • #${player.nomorPunggung}',
-                    style: TextStyle(
-                      color: Colors.grey[700],
-                      fontSize: 14,
-                    ),
+                    style: TextStyle(color: Colors.grey[700], fontSize: 14),
                   ),
                   trailing: Icon(
                     Icons.arrow_forward_ios,
@@ -61,7 +61,7 @@ class FootballPages extends StatelessWidget {
                   onTap: () {
                     Get.toNamed(
                       AppRoutes.footballEditPlayers,
-                      arguments: {'index': index},
+                      arguments: index,
                     );
                   },
                 ),

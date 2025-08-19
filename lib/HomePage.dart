@@ -116,8 +116,8 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _reset,
-              child: const Text('Reset'),
               style: ElevatedButton.styleFrom(backgroundColor: Colors.red, foregroundColor: Colors.white),
+              child: const Text('Reset'),
             ),
           ],
         ),

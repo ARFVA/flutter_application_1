@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/routes/routes.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/controllers/CalculatorController.dart';
 import 'package:flutter_application_1/Widget/CustomTextField.dart';
@@ -12,7 +11,16 @@ class CalculatorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("My Calculator")),
+      appBar: AppBar(
+        title: const Text(
+          "Calculator Page",
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 9, 90, 28),
+        foregroundColor: Colors.white,
+        elevation: 0,
+      ),
       body: Container(
         child: SingleChildScrollView(
           child: Padding(
@@ -20,24 +28,40 @@ class CalculatorPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                CustomTextField(label: "input angka 1", controller: calculatorController.txtAngka1, icon: Icons.looks_one),
+                CustomTextField(
+                  label: "input angka 1",
+                  controller: calculatorController.txtAngka1,
+                  icon: Icons.looks_one,
+                ),
                 SizedBox(height: 16),
-                CustomTextField(label: "input angka 2", controller: calculatorController.txtAngka2, icon: Icons.looks_two),
+                CustomTextField(
+                  label: "input angka 2",
+                  controller: calculatorController.txtAngka2,
+                  icon: Icons.looks_two,
+                ),
                 SizedBox(height: 16),
                 Container(
                   margin: EdgeInsets.all(10),
                   child: Row(
                     children: [
                       Expanded(
-                        child: CustomButton(text: "+", textColor: Colors.blue, onPressed: () {
-                          calculatorController.tambah();
-                        }),
+                        child: CustomButton(
+                          text: "+",
+                          textColor: const Color.fromARGB(255, 255, 255, 255),
+                          onPressed: () {
+                            calculatorController.tambah();
+                          },
+                        ),
                       ),
                       SizedBox(width: 10),
                       Expanded(
-                        child: CustomButton(text: "-", textColor: Colors.blue, onPressed: () {
-                          calculatorController.kurang();
-                        }),
+                        child: CustomButton(
+                          text: "-",
+                          textColor: const Color.fromARGB(255, 255, 255, 255),
+                          onPressed: () {
+                            calculatorController.kurang();
+                          },
+                        ),
                       ),
                     ],
                   ),
@@ -47,28 +71,29 @@ class CalculatorPage extends StatelessWidget {
                   child: Row(
                     children: [
                       Expanded(
-                        child: CustomButton(text: "X", textColor: Colors.blue, onPressed: () {
-                          calculatorController.kali();
-                        }),
+                        child: CustomButton(
+                          text: "X",
+                          textColor: const Color.fromARGB(255, 255, 255, 255),
+                          onPressed: () {
+                            calculatorController.kali();
+                          },
+                        ),
                       ),
                       SizedBox(width: 10),
                       Expanded(
-                        child: CustomButton(text: "/", textColor: Colors.blue, onPressed: () {
-                          calculatorController.bagi();
-                        }),
+                        child: CustomButton(
+                          text: "/",
+                          textColor: const Color.fromARGB(255, 255, 255, 255),
+                          onPressed: () {
+                            calculatorController.bagi();
+                          },
+                        ),
                       ),
                     ],
                   ),
                 ),
                 SizedBox(height: 16),
-                // render UI berada di wrap OBX
-                Obx(() => Text("Hasil "+calculatorController.hasil.value)),
-                SizedBox(height: 16),
-                CustomButton(
-                 text: "Footbal Players", textColor: Colors.blueAccent, onPressed: () {
-              Get.toNamed(AppRoutes.footballPlayers);
-            }
-                ),
+                Obx(() => Text("Hasil ${calculatorController.hasil.value}")),
               ],
             ),
           ),

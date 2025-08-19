@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/routes/pages.dart';
-import 'package:flutter_application_1/routes/routes.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:flutter_application_1/controllers/football_controller.dart';
+import 'package:flutter_application_1/pages/main_page.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
+
+  Get.put(Footballcontroller());
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -16,8 +20,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      initialRoute: AppRoutes.calculator,
-      getPages: AppPages.pages,
+      initialRoute: "/main",
+      getPages: [
+        GetPage(name: "/main", page: () => MainPage()),
+      ],
     );
   }
 }
