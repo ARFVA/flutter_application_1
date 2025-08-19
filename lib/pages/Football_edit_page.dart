@@ -12,7 +12,6 @@ class FootballEditPage extends StatelessWidget {
     final args = Get.arguments as Map<String, dynamic>;
     final int index = args['index'];
 
-    // Load data player untuk diedit
     editController.loadPlayer(index);
 
     return Scaffold(
