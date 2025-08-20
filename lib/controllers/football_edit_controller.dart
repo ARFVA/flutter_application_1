@@ -20,7 +20,7 @@ class FootballEditController extends GetxController {
     nomorPunggungController.text = player.nomorPunggung.toString();
   }
 
-  void updatePlayer(int index) {
+  void updatePlayer() {
     final updatedPlayer = Player(
       profileImage: footballController.players[index].profileImage,
       nama: namaController.text,

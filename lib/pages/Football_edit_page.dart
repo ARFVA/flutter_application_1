@@ -42,9 +42,9 @@ class FootballEditPage extends StatelessWidget {
             const SizedBox(height: 20),
             CustomButton(
               text: "Simpan",
-              backgroundColor: Colors.blueAccent,
+              backgroundColor: Color.fromARGB(255, 9, 90, 28),
               onPressed: () {
-                editController.updatePlayer(index);
+                editController.updatePlayer();
                 Get.back();
               },
             ),
