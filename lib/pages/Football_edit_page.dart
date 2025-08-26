@@ -11,9 +11,6 @@ class FootballEditPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final index = Get.arguments;
-    editController.loadPlayer(index);
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Edit Player"),
@@ -42,7 +39,7 @@ class FootballEditPage extends StatelessWidget {
             const SizedBox(height: 20),
             CustomButton(
               text: "Simpan",
-              backgroundColor: Color.fromARGB(255, 9, 90, 28),
+              backgroundColor: const Color.fromARGB(255, 9, 90, 28),
               onPressed: () {
                 editController.updatePlayer();
                 Get.back();

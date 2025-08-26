@@ -11,13 +11,18 @@ class FootballEditController extends GetxController {
   final nomorPunggungController = TextEditingController();
 
   late int index;
+  late Footballcontroller footballcontroller;
 
-  void loadPlayer(int idx) {
-    index = idx;
-    final player = footballController.players[idx];
+  @override
+  void onInit() {
+    super.onInit();
+    index = Get.arguments as int;
+    print("Selected edit data index: $index");
+    final player = footballController.players[index];
     namaController.text = player.nama;
     posisiController.text = player.posisi;
     nomorPunggungController.text = player.nomorPunggung.toString();
+    print("Selected player: ${player.nama}");
   }
 
   void updatePlayer() {

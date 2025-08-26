@@ -19,14 +19,11 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(
-          body: IndexedStack(
-            index: controller.selectedIndex.value,
-            children: pages,
-          ),
+          body: pages[controller.selectedIndex.value],
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: controller.selectedIndex.value,
-            onTap: controller.changeTab,
-            selectedItemColor: Colors.blueAccent,
+            onTap: controller.changePage,
+            selectedItemColor: const Color.fromARGB(255, 9, 90, 28),
             unselectedItemColor: Colors.grey,
             items: const [
               BottomNavigationBarItem(
