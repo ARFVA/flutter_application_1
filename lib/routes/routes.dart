@@ -4,4 +4,10 @@ class AppRoutes {
   static const String footballPlayers = "/footballPlayers";
   static const String footballEditPlayers = "/footballEditPlayers";
   static const String profile = "/profile";
+  static const String drawer = "/drawer";
+  static const String calculatorfrag = "/calculatorfrag";
+  static const String footballPlayersfrag = "/footballPlayersfrag";
+  static const String footballEditPlayersfrag = "/footballEditPlayersfrag";
+  static const String profilefrag = "/profilefrag";
+  
 }

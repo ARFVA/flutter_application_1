@@ -1,4 +1,9 @@
+import 'package:flutter_application_1/fragment/calculator_fragment.dart';
+import 'package:flutter_application_1/fragment/football_edit_fragment.dart';
+import 'package:flutter_application_1/fragment/football_fragment.dart';
+import 'package:flutter_application_1/fragment/profile_fragment.dart';
 import 'package:flutter_application_1/pages/CalculatorPage.dart';
+import 'package:flutter_application_1/pages/drawer_page.dart';
 import 'package:flutter_application_1/pages/main_page.dart';
 import 'package:flutter_application_1/pages/profile_page.dart';
 import 'package:get/get.dart';
@@ -13,5 +18,10 @@ class AppPages {
     GetPage(name: AppRoutes.footballPlayers, page: () => FootballPages()),
     GetPage(name: AppRoutes.footballEditPlayers,page: () => FootballEditPage(),),
     GetPage(name: AppRoutes.profile, page: () => const ProfilePage()),
+    GetPage(name: AppRoutes.drawer, page: () => DrawerPage()),
+    GetPage(name: AppRoutes.calculatorfrag, page: () => CalculatorFragment()),
+    GetPage(name: AppRoutes.footballPlayersfrag, page: () => FootballFragment()),
+    GetPage(name: AppRoutes.footballEditPlayersfrag,page: () => FootballEditFragment(),),
+    GetPage(name: AppRoutes.profilefrag, page: () => const ProfileFragment()),
   ];
 }
