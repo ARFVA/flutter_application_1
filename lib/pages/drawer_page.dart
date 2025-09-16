@@ -7,8 +7,8 @@ import 'package:flutter_application_1/fragment/profile_fragment.dart';
 
 class DrawerPage extends StatelessWidget {
   DrawerPage({super.key});
-
-  final MainController controller = Get.put(MainController());
+  // final MainController controller = Get.put(MainController());
+  final controller = Get.find<MainController>();
 
   final List<Widget> pages = [
     CalculatorFragment(),

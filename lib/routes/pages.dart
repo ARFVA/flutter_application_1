@@ -1,3 +1,7 @@
+import 'package:flutter_application_1/bindings/calculator_bindings.dart';
+import 'package:flutter_application_1/bindings/football_bindings.dart';
+import 'package:flutter_application_1/bindings/football_edit_bindings.dart';
+import 'package:flutter_application_1/bindings/menu_bindings.dart';
 import 'package:flutter_application_1/fragment/calculator_fragment.dart';
 import 'package:flutter_application_1/fragment/football_edit_fragment.dart';
 import 'package:flutter_application_1/fragment/football_fragment.dart';
@@ -13,15 +17,15 @@ import 'routes.dart';
 
 class AppPages {
   static final pages = [
-    GetPage(name: AppRoutes.main, page: () => MainPage()),
-    GetPage(name: AppRoutes.calculator, page: () => CalculatorPage()),
-    GetPage(name: AppRoutes.footballPlayers, page: () => FootballPages()),
-    GetPage(name: AppRoutes.footballEditPlayers,page: () => FootballEditPage(),),
+    GetPage(name: AppRoutes.main, page: () => MainPage(),bindings: [MenuBindings()]),
+    GetPage(name: AppRoutes.calculator, page: () => CalculatorPage(),bindings: [CalculatorBindings()]),
+    GetPage(name: AppRoutes.footballPlayers, page: () => FootballPages(), bindings: [FootballBindings()]),
+    GetPage(name: AppRoutes.footballEditPlayers,page: () => FootballEditPage(),bindings: [FootballEditBindings()]),
     GetPage(name: AppRoutes.profile, page: () => const ProfilePage()),
-    GetPage(name: AppRoutes.drawer, page: () => DrawerPage()),
-    GetPage(name: AppRoutes.calculatorfrag, page: () => CalculatorFragment()),
-    GetPage(name: AppRoutes.footballPlayersfrag, page: () => FootballFragment()),
-    GetPage(name: AppRoutes.footballEditPlayersfrag,page: () => FootballEditFragment(),),
-    GetPage(name: AppRoutes.profilefrag, page: () => const ProfileFragment()),
+    GetPage(name: AppRoutes.drawer, page: () => DrawerPage(),bindings: [MenuBindings()]),
+    GetPage(name: AppRoutes.calculatorfrag, page: () => CalculatorFragment(), bindings: [CalculatorBindings()]),
+    GetPage(name: AppRoutes.footballPlayersfrag, page: () => FootballFragment(), bindings: [FootballBindings()]),
+    GetPage(name: AppRoutes.footballEditPlayersfrag,page: () => FootballEditFragment(), bindings: [FootballEditBindings()]),
+    GetPage(name: AppRoutes.profilefrag, page: () => const ProfileFragment(),),
   ];
 }

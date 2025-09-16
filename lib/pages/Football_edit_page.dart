@@ -6,8 +6,8 @@ import 'package:get/get.dart';
 
 class FootballEditPage extends StatelessWidget {
   FootballEditPage({super.key});
-
-  final editController = Get.put(FootballEditController());
+  // final editController = Get.put(FootballEditController());
+  final editController = Get.find<FootballEditControllers>();
 
   @override
   Widget build(BuildContext context) {

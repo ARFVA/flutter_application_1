@@ -3,7 +3,7 @@ import 'package:flutter_application_1/controllers/football_controller.dart';
 import 'package:get/get.dart';
 import '../models/player_model.dart';
 
-class FootballEditController extends GetxController {
+class FootballEditControllers extends GetxController {
   final footballController = Get.find<Footballcontroller>();
 
   final namaController = TextEditingController();

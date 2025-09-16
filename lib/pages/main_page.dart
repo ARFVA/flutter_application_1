@@ -7,8 +7,8 @@ import 'package:flutter_application_1/pages/CalculatorPage.dart';
 
 class MainPage extends StatelessWidget {
   MainPage({super.key});
-
-  final MainController controller = Get.put(MainController());
+  // final MainController controller = Get.put(MainController());
+  final controller = Get.find<MainController>();
 
   final List<Widget> pages = [
     CalculatorPage(),

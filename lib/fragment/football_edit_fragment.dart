@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widget/CustomTextField.dart';
 import 'package:flutter_application_1/Widget/reusable.dart';
-import 'package:flutter_application_1/controllers/Football_edit_Controller.dart';
+import 'package:flutter_application_1/controllers/football_edit_controller.dart';
 import 'package:get/get.dart';
 
 class FootballEditFragment extends StatelessWidget {
   FootballEditFragment({super.key});
-
-  final editController = Get.put(FootballEditController());
+  // final editController = Get.put(FootballEditController());
+  final editController = Get.find<FootballEditControllers>();
 
   @override
   Widget build(BuildContext context) {
