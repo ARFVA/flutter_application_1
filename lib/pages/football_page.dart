@@ -5,7 +5,6 @@ import 'package:flutter_application_1/routes/routes.dart';
 
 class FootballPages extends StatelessWidget {
   FootballPages({super.key});
-  // final Footballcontroller footballController = Get.put(Footballcontroller());
   final footballController = Get.find<Footballcontroller>();
 
   @override

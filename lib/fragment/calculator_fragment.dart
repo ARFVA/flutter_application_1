@@ -6,7 +6,6 @@ import 'package:flutter_application_1/Widget/reusable.dart';
 
 class CalculatorFragment extends StatelessWidget {
   CalculatorFragment({super.key});
-  // final CalculatorController calculatorController = Get.put(CalculatorController());
   final calculatorController = Get.find<CalculatorController>();
 
   @override

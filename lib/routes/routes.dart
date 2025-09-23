@@ -9,5 +9,6 @@ class AppRoutes {
   static const String footballPlayersfrag = "/footballPlayersfrag";
   static const String footballEditPlayersfrag = "/footballEditPlayersfrag";
   static const String profilefrag = "/profilefrag";
-  
+  static const String splashscreenPage = "/splachscreen";
+  static const String loginpage = "/loginpage";
 }

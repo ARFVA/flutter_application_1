@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/controllers/login_controller.dart';
 import 'package:flutter_application_1/widget/ProfileInfo.dart';
+import 'package:flutter_application_1/widget/ReusbaleButton.dart';
+import 'package:get/get.dart';
 
 class ProfileFragment extends StatelessWidget {
-  const ProfileFragment({super.key});
-
+  ProfileFragment({super.key});
+  final profilcontoller = Get.find<LoginController>();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +25,7 @@ class ProfileFragment extends StatelessWidget {
               crossAxisAlignment:
                   CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
-              children: const [
+              children: [
                 Center(
                   child: CircleAvatar(
                     radius: 50,
@@ -46,6 +50,15 @@ class ProfileFragment extends StatelessWidget {
                 SizedBox(height: 8),
 
                 ProfileInfo(title: "Hobi", value: "Main Game"),
+                SizedBox(height: 16),
+
+                 ReusableButton(
+                  text: "Logout",
+                  color: Colors.red,
+                  onPressed: () {
+                  profilcontoller.logout();
+                  },
+                ),
               ],
             ),
           ),

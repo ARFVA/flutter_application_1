@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widget/ProfileInfo.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-     appBar: AppBar(
+      appBar: AppBar(
         title: const Text(
           "Profile Page",
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -28,8 +28,7 @@ class ProfilePage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
-              crossAxisAlignment:
-                  CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: const [
                 Center(
@@ -56,6 +55,7 @@ class ProfilePage extends StatelessWidget {
                 SizedBox(height: 8),
 
                 ProfileInfo(title: "Hobi", value: "Main Game"),
+                SizedBox(height: 8),
               ],
             ),
           ),

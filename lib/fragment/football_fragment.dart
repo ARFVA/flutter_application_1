@@ -5,7 +5,6 @@ import 'package:flutter_application_1/routes/routes.dart';
 
 class FootballFragment extends StatelessWidget {
   FootballFragment({super.key});
-  // final Footballcontroller footballController = Get.put(Footballcontroller());\\
   final footballController = Get.find<Footballcontroller>();
 
   @override
