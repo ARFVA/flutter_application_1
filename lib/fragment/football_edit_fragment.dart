@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widget/CustomTextField.dart';
 import 'package:flutter_application_1/Widget/reusable.dart';
 import 'package:flutter_application_1/controllers/football_edit_controller.dart';
+import 'package:flutter_application_1/widget/ReusableText.dart';
 import 'package:get/get.dart';
 
 class FootballEditFragment extends StatelessWidget {
@@ -12,12 +13,10 @@ class FootballEditFragment extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Edit Player",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20, 
-          ),
+        title: ReusableText(
+          text: "Edit Player",
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
         ),
         backgroundColor: const Color.fromARGB(255, 9, 90, 28),
         foregroundColor: Colors.white,

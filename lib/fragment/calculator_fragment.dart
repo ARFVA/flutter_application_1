@@ -14,7 +14,7 @@ class CalculatorFragment extends StatelessWidget {
       body: Container(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -37,7 +37,8 @@ class CalculatorFragment extends StatelessWidget {
                       Expanded(
                         child: CustomButton(
                           text: "+",
-                          textColor: const Color.fromARGB(255, 255, 255, 255),
+                          textColor:  Color.fromARGB(255, 255, 255, 255),
+                          backgroundColor: Color.fromARGB(255, 9, 90, 28),
                           onPressed: () {
                             calculatorController.tambah();
                           },
@@ -47,7 +48,8 @@ class CalculatorFragment extends StatelessWidget {
                       Expanded(
                         child: CustomButton(
                           text: "-",
-                          textColor: const Color.fromARGB(255, 255, 255, 255),
+                          textColor:  Color.fromARGB(255, 255, 255, 255),
+                          backgroundColor: Color.fromARGB(255, 9, 90, 28),
                           onPressed: () {
                             calculatorController.kurang();
                           },
@@ -63,7 +65,8 @@ class CalculatorFragment extends StatelessWidget {
                       Expanded(
                         child: CustomButton(
                           text: "X",
-                          textColor: const Color.fromARGB(255, 255, 255, 255),
+                          textColor:  Color.fromARGB(255, 255, 255, 255),
+                          backgroundColor: Color.fromARGB(255, 9, 90, 28),
                           onPressed: () {
                             calculatorController.kali();
                           },
@@ -73,7 +76,8 @@ class CalculatorFragment extends StatelessWidget {
                       Expanded(
                         child: CustomButton(
                           text: "/",
-                          textColor: const Color.fromARGB(255, 255, 255, 255),
+                          backgroundColor: Color.fromARGB(255, 9, 90, 28),
+                          textColor:  Color.fromARGB(255, 255, 255, 255),
                           onPressed: () {
                             calculatorController.bagi();
                           },

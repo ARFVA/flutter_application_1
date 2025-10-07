@@ -8,7 +8,6 @@ class LoginController extends GetxController {
   final TextEditingController passwordController = TextEditingController();
 
   void login() async {
-
     if (usernamController.text == 'admin' && passwordController.text == '123') {
       final prefs = await SharedPreferences.getInstance();
       prefs.setString('username', usernamController.text.toString());

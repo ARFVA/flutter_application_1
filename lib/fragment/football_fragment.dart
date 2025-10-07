@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controllers/football_controller.dart';
+import 'package:flutter_application_1/widget/ReusableText.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/routes/routes.dart';
 
@@ -32,16 +33,16 @@ class FootballFragment extends StatelessWidget {
                     radius: 28,
                     backgroundImage: AssetImage(player.profileImage),
                   ),
-                  title: Text(
-                    player.nama,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                    ),
+                  title: ReusableText(
+                    text: player.nama,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
                   ),
-                  subtitle: Text(
-                    '${player.posisi} • #${player.nomorPunggung}',
-                    style: TextStyle(color: Colors.grey[700], fontSize: 14),
+                  subtitle: ReusableText(
+                    text: "Posisi: ${player.posisi}\nNomor Punggung: ${player.nomorPunggung}",
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.grey[600],
                   ),
                   trailing: Icon(
                     Icons.arrow_forward_ios,

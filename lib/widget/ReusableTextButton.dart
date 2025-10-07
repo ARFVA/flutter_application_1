@@ -1,33 +1,35 @@
 import 'package:flutter/material.dart';
 
-class ReusableButton extends StatelessWidget {
+class ReusableTextButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
-  final Color color;
+  final Color? color;
+  final Color? textColor;
 
-  const ReusableButton({
+  const ReusableTextButton({
     super.key,
     required this.text,
-    required this.color,
     required this.onPressed,
+    this.color,
+    this.textColor,
   });
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
+    return TextButton(
+      style: TextButton.styleFrom(
         backgroundColor: color,
+        foregroundColor: textColor,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
       ),
+      onPressed: onPressed,
       child: Text(
         text,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 16,
+        style: TextStyle(
+          color: textColor ?? Colors.white,
           fontWeight: FontWeight.bold,
         ),
       ),

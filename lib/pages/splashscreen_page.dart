@@ -15,13 +15,13 @@ class SplashscreenPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Image(
+             Image(
               image: AssetImage("assets/image/loq.png"),
               width: 200,
               height: 200,
             ),
-            const SizedBox(height: 20),
-            const CircularProgressIndicator(
+             SizedBox(height: 20),
+             CircularProgressIndicator(
               strokeWidth: 3,
               color: Colors.blue,
             ),
