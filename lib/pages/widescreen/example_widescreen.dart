@@ -9,6 +9,7 @@ import 'package:get/route_manager.dart';
 class ExampleWidescreen extends StatelessWidget {
   ExampleWidescreen({super.key});
   final footballController = Get.find<Footballcontroller>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +31,7 @@ class ExampleWidescreen extends StatelessWidget {
           () => GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 2.8,
+              childAspectRatio: 2,
               crossAxisSpacing: 16,
               mainAxisSpacing: 16,
             ),
@@ -43,6 +44,7 @@ class ExampleWidescreen extends StatelessWidget {
                 ),
                 elevation: 2,
                 child: ListTile(
+                  isThreeLine: true,
                   contentPadding: const EdgeInsets.symmetric(
                     horizontal: 24,
                     vertical: 12,
@@ -57,10 +59,13 @@ class ExampleWidescreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                   subtitle: ReusableText(
-                    text: "Posisi: ${player.posisi}\nNomor Punggung: ${player.nomorPunggung}",
+                    text:
+                        "Posisi: ${player.posisi}\nNomor Punggung: ${player.nomorPunggung}",
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
                     color: Colors.grey[700],
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   trailing: Icon(
                     Icons.arrow_forward_ios,

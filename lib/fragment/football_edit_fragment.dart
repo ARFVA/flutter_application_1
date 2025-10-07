@@ -21,7 +21,7 @@ class FootballEditFragment extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 9, 90, 28),
         foregroundColor: Colors.white,
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [

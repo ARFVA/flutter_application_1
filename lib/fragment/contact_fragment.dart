@@ -53,26 +53,37 @@ class ContactFragment extends StatelessWidget {
                   itemCount: contactController.names.length,
                   itemBuilder: (context, index) {
                     final name = contactController.names[index];
-                    return ListTile(
-                      title: ReusableText(text: name, fontSize: 16),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          ReusableIconButton(
-                            icon: Icons.edit,
-                            color:Color.fromARGB(255, 13, 85, 144),
-                            onPressed: () {
-                              contactController.showEditDialog(context, index);
-                            },
-                          ),
-                          ReusableIconButton(
-                            icon: Icons.delete,
-                            color:Color.fromARGB(255, 165, 34, 24),
-                            onPressed: () {
-                              contactController.deleteName(index);
-                            },
-                          ),
-                        ],
+                    return Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        side: const BorderSide(
+                          color: Color.fromARGB(255, 9, 90, 28),
+                          width: 1.2,
+                        ),
+                      ),
+                      elevation: 2,
+                      margin: const EdgeInsets.symmetric(vertical: 4),
+                      child: ListTile(
+                        title: ReusableText(text: name, fontSize: 16),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            ReusableIconButton(
+                              icon: Icons.edit,
+                              color:Color.fromARGB(255, 13, 85, 144),
+                              onPressed: () {
+                                contactController.showEditDialog(context, index);
+                              },
+                            ),
+                            ReusableIconButton(
+                              icon: Icons.delete,
+                              color:Color.fromARGB(255, 165, 34, 24),
+                              onPressed: () {
+                                contactController.deleteName(index);
+                              },
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   },

@@ -38,6 +38,7 @@ class ExampleMobile extends StatelessWidget {
                 elevation: 2,
                 margin: const EdgeInsets.symmetric(vertical: 6),
                 child: ListTile(
+                  isThreeLine: true,
                   contentPadding: const EdgeInsets.symmetric(
                     horizontal: 15,
                     vertical: 8,
@@ -52,10 +53,13 @@ class ExampleMobile extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                   subtitle: ReusableText(
-                    text: "Posisi: ${player.posisi}\nNomor Punggung: ${player.nomorPunggung}",
-                    fontSize: 14,
+                    text:
+                        "Posisi: ${player.posisi}\nNomor Punggung: ${player.nomorPunggung}",
+                    fontSize: 15,
                     fontWeight: FontWeight.w400,
-                    color: Colors.grey[600],
+                    color: Colors.grey[700],
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   trailing: Icon(
                     Icons.arrow_forward_ios,

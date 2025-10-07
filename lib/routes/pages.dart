@@ -1,6 +1,5 @@
 import 'package:flutter_application_1/bindings/calculator_bindings.dart';
 import 'package:flutter_application_1/bindings/contact_bindings.dart';
-import 'package:flutter_application_1/bindings/example_bindings.dart';
 import 'package:flutter_application_1/bindings/football_bindings.dart';
 import 'package:flutter_application_1/bindings/football_edit_bindings.dart';
 import 'package:flutter_application_1/bindings/login_bindings.dart';
@@ -69,7 +68,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.examplepage,
       page: () => ExamplePage(),
-      bindings: [ExampleBindings()],
+      bindings: [FootballBindings()],
     ),
   ];
 }
