@@ -12,6 +12,18 @@ class ContactFragment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: ReusableText(
+          text: "Contact List",
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 9, 90, 28),
+        foregroundColor: Colors.white,
+        elevation: 0,
+      ),
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Column(

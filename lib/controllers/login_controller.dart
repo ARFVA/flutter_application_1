@@ -19,7 +19,7 @@ class LoginController extends GetxController {
         colorText: Color( 0xFFFFFFFF),
         margin: EdgeInsets.all(10),
       );
-      Get.offAllNamed(AppRoutes.drawer);
+      Get.offAllNamed(AppRoutes.main);
     } else {
       Get.snackbar(
         'Login Gagal!',

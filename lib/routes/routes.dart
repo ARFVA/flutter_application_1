@@ -12,4 +12,5 @@ class AppRoutes {
   static const String splashscreenPage = "/splachscreen";
   static const String loginpage = "/loginpage";
   static const String contactfrag = "/contactfrag";
+  static const String examplepage = "/examplepage";
 }

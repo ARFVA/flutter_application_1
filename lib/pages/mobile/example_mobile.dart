@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controllers/football_controller.dart';
+import 'package:flutter_application_1/routes/routes.dart';
 import 'package:flutter_application_1/widget/ReusableText.dart';
 import 'package:get/get.dart';
-import 'package:flutter_application_1/routes/routes.dart';
+import 'package:get/route_manager.dart';
 
-class FootballFragment extends StatelessWidget {
-  FootballFragment({super.key});
+class ExampleMobile extends StatelessWidget {
+  ExampleMobile({super.key});
   final footballController = Get.find<Footballcontroller>();
 
   @override
@@ -13,7 +14,7 @@ class FootballFragment extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: ReusableText(
-          text: "My Football Players",
+          text: "Football Mobile",
           fontSize: 20,
           fontWeight: FontWeight.bold,
           color: Colors.white,

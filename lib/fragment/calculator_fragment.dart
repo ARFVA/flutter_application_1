@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widget/ReusableText.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/controllers/CalculatorController.dart';
 import 'package:flutter_application_1/Widget/CustomTextField.dart';
@@ -11,6 +12,18 @@ class CalculatorFragment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: ReusableText(
+          text: "Calculator",
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 9, 90, 28),
+        foregroundColor: Colors.white,
+        elevation: 0,
+      ),
       body: Container(
         child: SingleChildScrollView(
           child: Padding(

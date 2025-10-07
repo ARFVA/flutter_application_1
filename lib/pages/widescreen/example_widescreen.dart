@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controllers/football_controller.dart';
-import 'package:get/get.dart';
 import 'package:flutter_application_1/routes/routes.dart';
+import 'package:flutter_application_1/widget/ReusableText.dart';
+import 'package:get/get.dart';
+import 'package:get/get_instance/get_instance.dart';
+import 'package:get/route_manager.dart';
 
-class FootballPages extends StatelessWidget {
-  FootballPages({super.key});
+class ExampleWidescreen extends StatelessWidget {
+  ExampleWidescreen({super.key});
   final footballController = Get.find<Footballcontroller>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "My Football Players",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        title: ReusableText(
+          text: "Football Widescreen",
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
         ),
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 9, 90, 28),
@@ -21,9 +25,15 @@ class FootballPages extends StatelessWidget {
         elevation: 0,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(20),
         child: Obx(
-          () => ListView.builder(
+          () => GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 2.8,
+              crossAxisSpacing: 16,
+              mainAxisSpacing: 16,
+            ),
             itemCount: footballController.players.length,
             itemBuilder: (context, index) {
               final player = footballController.players[index];
@@ -32,35 +42,34 @@ class FootballPages extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 elevation: 2,
-                margin: const EdgeInsets.symmetric(vertical: 6),
                 child: ListTile(
                   contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 15,
-                    vertical: 8,
+                    horizontal: 24,
+                    vertical: 12,
                   ),
                   leading: CircleAvatar(
-                    radius: 28,
+                    radius: 32,
                     backgroundImage: AssetImage(player.profileImage),
                   ),
-                  title: Text(
-                    player.nama,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                    ),
+                  title: ReusableText(
+                    text: player.nama,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
                   ),
-                  subtitle: Text(
-                    '${player.posisi} • #${player.nomorPunggung}',
-                    style: TextStyle(color: Colors.grey[700], fontSize: 14),
+                  subtitle: ReusableText(
+                    text: "Posisi: ${player.posisi}\nNomor Punggung: ${player.nomorPunggung}",
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.grey[700],
                   ),
                   trailing: Icon(
                     Icons.arrow_forward_ios,
-                    size: 18,
+                    size: 22,
                     color: Colors.grey[600],
                   ),
                   onTap: () {
                     Get.toNamed(
-                      AppRoutes.footballEditPlayers,
+                      AppRoutes.footballEditPlayersfrag,
                       arguments: index,
                     );
                   },

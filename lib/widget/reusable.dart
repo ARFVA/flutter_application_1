@@ -16,18 +16,19 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: backgroundColor,
-        minimumSize: const Size.fromHeight(45),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+    return SizedBox(
+      width: double
+          .infinity, // atau ganti dengan null jika ingin lebar mengikuti konten
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: backgroundColor,
+          // Hapus minimumSize agar tidak memaksa lebar
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
         ),
-      ),
-      child: Text(
-        text,
-        style: TextStyle(color: textColor, fontSize: 16),
+        child: Text(text, style: TextStyle(color: textColor, fontSize: 16)),
       ),
     );
   }

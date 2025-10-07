@@ -23,7 +23,7 @@ class SplashscreenPage extends StatelessWidget {
              SizedBox(height: 20),
              CircularProgressIndicator(
               strokeWidth: 3,
-              color: Colors.blue,
+              color: Color.fromARGB(255, 9, 90, 28),
             ),
           ],
         ),

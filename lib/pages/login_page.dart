@@ -18,8 +18,9 @@ class LoginPages extends StatelessWidget {
           text: "Login",
           fontSize: 20,
           fontWeight: FontWeight.bold,
+          color: Colors.white,
         ),
-        backgroundColor: Colors.teal,
+        backgroundColor: Color.fromARGB(255, 9, 90, 28),
       ),
       body: Padding(
         padding: EdgeInsets.all(16),
@@ -28,7 +29,7 @@ class LoginPages extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SizedBox(height: 15),
-              Icon(Icons.person, size: 120, color: Colors.teal),
+              Icon(Icons.person, size: 120, color: Color.fromARGB(255, 9, 90, 28)),
               ReusableText(
                 text: "Welcome Back!",
                 fontSize: 26,
@@ -48,7 +49,7 @@ class LoginPages extends StatelessWidget {
               SizedBox(height: 16),
               CustomButton(
                 text: 'Login',
-                backgroundColor: Colors.teal,
+                backgroundColor: Color.fromARGB(255, 9, 90, 28),
                 onPressed: () {
                   loginController.login();
                 },

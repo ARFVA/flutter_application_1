@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/football_page.dart';
-import 'package:flutter_application_1/pages/profile_page.dart';
+import 'package:flutter_application_1/fragment/calculator_fragment.dart';
+import 'package:flutter_application_1/fragment/contact_fragment.dart';
+import 'package:flutter_application_1/fragment/profile_fragment.dart';
+import 'package:flutter_application_1/pages/example_page.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/controllers/main_controller.dart';
-import 'package:flutter_application_1/pages/CalculatorPage.dart';
 
 class MainPage extends StatelessWidget {
   MainPage({super.key});
   final controller = Get.find<MainController>();
 
   final List<Widget> pages = [
-    CalculatorPage(),
-    FootballPages(),
-    ProfilePage(),
+    CalculatorFragment(),
+    ExamplePage(),
+    ProfileFragment(),
+    ContactFragment()
   ];
 
   @override
@@ -22,6 +24,7 @@ class MainPage extends StatelessWidget {
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: controller.selectedIndex.value,
             onTap: controller.changePage,
+            backgroundColor: Colors.white,
             selectedItemColor: const Color.fromARGB(255, 9, 90, 28),
             unselectedItemColor: Colors.grey,
             items: const [
@@ -36,6 +39,10 @@ class MainPage extends StatelessWidget {
               BottomNavigationBarItem(
                 icon: Icon(Icons.person),
                 label: "Profile",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.contact_mail),
+                label: "contact",
               ),
             ],
           ),
