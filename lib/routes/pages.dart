@@ -2,18 +2,18 @@ import 'package:flutter_application_1/bindings/calculator_bindings.dart';
 import 'package:flutter_application_1/bindings/contact_bindings.dart';
 import 'package:flutter_application_1/bindings/football_bindings.dart';
 import 'package:flutter_application_1/bindings/football_edit_bindings.dart';
+import 'package:flutter_application_1/bindings/login_api_bindings.dart';
 import 'package:flutter_application_1/bindings/login_bindings.dart';
 import 'package:flutter_application_1/bindings/menu_bindings.dart';
 import 'package:flutter_application_1/bindings/splashcreen_bindings.dart';
 import 'package:flutter_application_1/fragment/calculator_fragment.dart';
 import 'package:flutter_application_1/fragment/contact_fragment.dart';
 import 'package:flutter_application_1/fragment/football_edit_fragment.dart';
-import 'package:flutter_application_1/fragment/football_fragment.dart';
 import 'package:flutter_application_1/fragment/profile_fragment.dart';
 import 'package:flutter_application_1/pages/bottomnav_page.dart';
 import 'package:flutter_application_1/pages/drawer_page.dart';
 import 'package:flutter_application_1/pages/example_page.dart';
-import 'package:flutter_application_1/pages/login_page.dart';
+import 'package:flutter_application_1/pages/login_api.dart';
 import 'package:flutter_application_1/pages/splashscreen_page.dart';
 import 'package:get/get.dart';
 import 'routes.dart';
@@ -36,11 +36,6 @@ class AppPages {
       bindings: [CalculatorBindings()],
     ),
     GetPage(
-      name: AppRoutes.footballPlayersfrag,
-      page: () => FootballFragment(),
-      bindings: [FootballBindings()],
-    ),
-    GetPage(
       name: AppRoutes.footballEditPlayersfrag,
       page: () => FootballEditFragment(),
       bindings: [FootballEditBindings()],
@@ -57,8 +52,8 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.loginpage,
-      page: () => LoginPages(),
-      bindings: [LoginBinding()],
+      page: () => LoginApiPage(),
+      bindings: [LoginApiBinding()],
     ),
     GetPage(
       name: AppRoutes.contactfrag,

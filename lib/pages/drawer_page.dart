@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/fragment/contact_fragment.dart';
+import 'package:flutter_application_1/pages/example_page.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/controllers/main_controller.dart';
 import 'package:flutter_application_1/fragment/calculator_fragment.dart';
-import 'package:flutter_application_1/fragment/football_fragment.dart';
 import 'package:flutter_application_1/fragment/profile_fragment.dart';
 
 class DrawerPage extends StatelessWidget {
@@ -12,7 +12,7 @@ class DrawerPage extends StatelessWidget {
 
   final List<Widget> pages = [
     CalculatorFragment(),
-    FootballFragment(),
+    ExamplePage(),
     ProfileFragment(),
     ContactFragment(),
   ];

@@ -3,6 +3,7 @@ import 'package:flutter_application_1/Widget/reusable.dart';
 import 'package:flutter_application_1/controllers/login_controller.dart';
 import 'package:flutter_application_1/widget/ProfileInfo.dart';
 import 'package:flutter_application_1/widget/ReusableProfileCard.dart';
+import 'package:flutter_application_1/widget/ReusableDialog.dart';
 import 'package:flutter_application_1/widget/ReusableText.dart';
 import 'package:get/get.dart';
 
@@ -45,7 +46,18 @@ class ProfileFragment extends StatelessWidget {
               text: "Logout",
               backgroundColor: Colors.red,
               onPressed: () {
-                profilcontoller.logout();
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return ReusableDialog(
+                      title: 'Konfirmasi Logout',
+                      content: Text('Apakah Anda yakin ingin keluar?'),
+                      onConfirm: () {
+                        profilcontoller.logout();
+                      },
+                    );
+                  },
+                );
               },
             ),
           ),

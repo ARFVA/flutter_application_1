@@ -4,12 +4,14 @@ class ReusableTextField extends StatefulWidget {
   final String label;
   final TextEditingController controller;
   final bool isPassword;
+  final IconData? icon;
 
   const ReusableTextField({
     super.key,
     required this.label,
     required this.controller,
     this.isPassword = false,
+    this.icon,
   });
 
   @override
@@ -35,6 +37,7 @@ class _ReusableTextFieldState extends State<ReusableTextField> {
         labelStyle: const TextStyle(
           color: Colors.black,
         ),
+        prefixIcon: widget.icon != null ? Icon(widget.icon) : null,
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: Colors.black,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/controllers/NotificationController.dart';
 import 'package:flutter_application_1/fragment/calculator_fragment.dart';
 import 'package:flutter_application_1/fragment/contact_fragment.dart';
 import 'package:flutter_application_1/fragment/profile_fragment.dart';
@@ -8,6 +9,8 @@ import 'package:flutter_application_1/controllers/main_controller.dart';
 
 class MainPage extends StatelessWidget {
   MainPage({super.key});
+
+  final notifController = Get.put(NotificationController()); 
   final controller = Get.find<MainController>();
 
   final List<Widget> pages = [
