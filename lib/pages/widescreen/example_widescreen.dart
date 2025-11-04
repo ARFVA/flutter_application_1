@@ -3,8 +3,6 @@ import 'package:flutter_application_1/controllers/football_controller.dart';
 import 'package:flutter_application_1/routes/routes.dart';
 import 'package:flutter_application_1/widget/ReusableText.dart';
 import 'package:get/get.dart';
-import 'package:get/get_instance/get_instance.dart';
-import 'package:get/route_manager.dart';
 
 class ExampleWidescreen extends StatelessWidget {
   ExampleWidescreen({super.key});

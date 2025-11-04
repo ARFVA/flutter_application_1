@@ -5,19 +5,14 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_application_1/routes/pages.dart';
 import 'package:flutter_application_1/routes/routes.dart';
 
-// 🔔 Handler untuk pesan background
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
-  print("🔔 Handling background message: ${message.messageId}");
-  print("📨 Title: ${message.notification?.title}");
-  print("📝 Body: ${message.notification?.body}");
+  print("🔔 Background message: ${message.messageId}");
 }
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await Firebase.initializeApp();
-
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   runApp(const MyApp());

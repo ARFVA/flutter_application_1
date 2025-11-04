@@ -3,12 +3,14 @@ import 'package:flutter_application_1/bindings/contact_bindings.dart';
 import 'package:flutter_application_1/bindings/football_bindings.dart';
 import 'package:flutter_application_1/bindings/football_edit_bindings.dart';
 import 'package:flutter_application_1/bindings/login_api_bindings.dart';
-import 'package:flutter_application_1/bindings/login_bindings.dart';
 import 'package:flutter_application_1/bindings/menu_bindings.dart';
+import 'package:flutter_application_1/bindings/premiere_bindings.dart';
 import 'package:flutter_application_1/bindings/splashcreen_bindings.dart';
 import 'package:flutter_application_1/fragment/calculator_fragment.dart';
 import 'package:flutter_application_1/fragment/contact_fragment.dart';
 import 'package:flutter_application_1/fragment/football_edit_fragment.dart';
+import 'package:flutter_application_1/fragment/home_fragment.dart';
+import 'package:flutter_application_1/fragment/premiere_table_fragment.dart';
 import 'package:flutter_application_1/fragment/profile_fragment.dart';
 import 'package:flutter_application_1/pages/bottomnav_page.dart';
 import 'package:flutter_application_1/pages/drawer_page.dart';
@@ -43,7 +45,8 @@ class AppPages {
     GetPage(
       name: AppRoutes.profilefrag,
       page: () => ProfileFragment(),
-      bindings: [LoginBinding()],
+      // ProfileFragment uses LoginApiController, register it here
+      bindings: [LoginApiBinding()],
     ),
     GetPage(
       name: AppRoutes.splashscreenPage,
@@ -64,6 +67,15 @@ class AppPages {
       name: AppRoutes.examplepage,
       page: () => ExamplePage(),
       bindings: [FootballBindings()],
+    ),
+    GetPage(
+      name: AppRoutes.homefirebase,
+      page: () => Homefirebase(),
+    ),
+    GetPage(
+      name: AppRoutes.premieretable,
+      page: () => PremiereTablePage(),
+      bindings: [PremiereBindings()],
     ),
   ];
 }

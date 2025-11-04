@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/controllers/NotificationController.dart';
 import 'package:flutter_application_1/fragment/calculator_fragment.dart';
 import 'package:flutter_application_1/fragment/contact_fragment.dart';
+import 'package:flutter_application_1/fragment/home_fragment.dart';
+import 'package:flutter_application_1/fragment/premiere_table_fragment.dart';
 import 'package:flutter_application_1/fragment/profile_fragment.dart';
 import 'package:flutter_application_1/pages/example_page.dart';
 import 'package:get/get.dart';
@@ -9,13 +10,13 @@ import 'package:flutter_application_1/controllers/main_controller.dart';
 
 class MainPage extends StatelessWidget {
   MainPage({super.key});
-
-  final notifController = Get.put(NotificationController()); 
   final controller = Get.find<MainController>();
 
   final List<Widget> pages = [
+    Homefirebase(),
     CalculatorFragment(),
     ExamplePage(),
+    PremiereTablePage(),
     ProfileFragment(),
     ContactFragment()
   ];
@@ -32,6 +33,10 @@ class MainPage extends StatelessWidget {
             unselectedItemColor: Colors.grey,
             items: const [
               BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: "Home",
+              ),
+              BottomNavigationBarItem(
                 icon: Icon(Icons.calculate),
                 label: "Calculator",
               ),
@@ -40,13 +45,17 @@ class MainPage extends StatelessWidget {
                 label: "Football",
               ),
               BottomNavigationBarItem(
+                icon: Icon(Icons.table_chart),
+                label: "Premiere",
+              ),
+              BottomNavigationBarItem(
                 icon: Icon(Icons.person),
                 label: "Profile",
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.contact_mail),
                 label: "contact",
-              ),
+              )
             ],
           ),
         ));

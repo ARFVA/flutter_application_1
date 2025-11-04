@@ -45,5 +45,7 @@ dependencies {
     implementation("com.google.firebase:firebase-messaging")
 
     // ✅ tambahkan ini di bawah dependencies
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
+    // desugar_jdk_libs required by some AARs (e.g. flutter_local_notifications)
+    // bump to 2.1.4 or newer to satisfy metadata checks
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
 }

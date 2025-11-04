@@ -13,4 +13,6 @@ class AppRoutes {
   static const String loginpage = "/loginpage";
   static const String contactfrag = "/contactfrag";
   static const String examplepage = "/examplepage";
+  static const String homefirebase = "/homefirebase";
+  static const String premieretable = "/premieretable";
 }

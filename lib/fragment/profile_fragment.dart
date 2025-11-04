@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Widget/reusable.dart';
-import 'package:flutter_application_1/controllers/login_controller.dart';
-import 'package:flutter_application_1/widget/ProfileInfo.dart';
-import 'package:flutter_application_1/widget/ReusableProfileCard.dart';
-import 'package:flutter_application_1/widget/ReusableDialog.dart';
+import 'package:flutter_application_1/controllers/login_api_controller.dart';
 import 'package:flutter_application_1/widget/ReusableText.dart';
+import 'package:flutter_application_1/widget/ReusbaleButton.dart';
+
 import 'package:get/get.dart';
 
 class ProfileFragment extends StatelessWidget {
   ProfileFragment({super.key});
-  final profilcontoller = Get.find<LoginController>();
+
+  final controller = Get.find<LoginApiController>();
 
   @override
   Widget build(BuildContext context) {
@@ -26,42 +25,40 @@ class ProfileFragment extends StatelessWidget {
         foregroundColor: Colors.white,
         elevation: 0,
       ),
-      backgroundColor: Colors.grey[100],
-      body: SingleChildScrollView(
-        child: Center(
-          child: ReusableProfileCard(
-            imagePath: "assets/image/ronaldo.png",
-            infoWidgets: [
-              ProfileInfo(title: "Nama", value: "Riffat Arfa Pramana"),
+      body: Center(
+        child: Obx(() {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // ✅ GOOGLE PHOTO
+              CircleAvatar(
+                radius: 50,
+                backgroundImage: controller.googlePhoto.value.isEmpty
+                    ? AssetImage("assets/default.png")
+                    : NetworkImage(controller.googlePhoto.value)
+                        as ImageProvider,
+              ),
+
+              SizedBox(height: 16),
+
+              // ✅ GOOGLE NAME
+              Text(
+                controller.googleName.value,
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+
               SizedBox(height: 8),
-              ProfileInfo(title: "Absen", value: "33"),
-              SizedBox(height: 8),
-              ProfileInfo(title: "Kelas", value: "XI PPLG 1"),
-              SizedBox(height: 8),
-              ProfileInfo(title: "Asal", value: "Prambatan Kidul, Kudus, Jawa Tengah"),
-              SizedBox(height: 8),
-              ProfileInfo(title: "Hobi", value: "Main Game"),
+
+              // ✅ GOOGLE EMAIL
+              Text(
+                controller.googleEmail.value,
+                style: TextStyle(fontSize: 16, color: Colors.grey),
+              ),
+              SizedBox(height: 24),
+              ReusableButton(text: 'Logout', color: Colors.red, onPressed: controller.logout)
             ],
-            actionWidget: CustomButton(
-              text: "Logout",
-              backgroundColor: Colors.red,
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return ReusableDialog(
-                      title: 'Konfirmasi Logout',
-                      content: Text('Apakah Anda yakin ingin keluar?'),
-                      onConfirm: () {
-                        profilcontoller.logout();
-                      },
-                    );
-                  },
-                );
-              },
-            ),
-          ),
-        ),
+          );
+        }),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controllers/login_api_controller.dart';
+import 'package:flutter_application_1/widget/GoogleSignIn.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/widget/ReusableText.dart';
 import 'package:flutter_application_1/widget/ReusableTextField.dart';
@@ -10,6 +11,7 @@ class LoginApiPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ✅ Inisialisasi controller di halaman login, bukan di main.dart
     final loginController = Get.find<LoginApiController>();
 
     return Scaffold(
@@ -29,7 +31,11 @@ class LoginApiPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const SizedBox(height: 15),
-              const Icon(Icons.person, size: 120, color: Color.fromARGB(255, 9, 90, 28)),
+              const Icon(
+                Icons.person,
+                size: 120,
+                color: Color.fromARGB(255, 9, 90, 28),
+              ),
               const SizedBox(height: 12),
               const ReusableText(
                 text: "Welcome Back!",
@@ -52,19 +58,20 @@ class LoginApiPage extends StatelessWidget {
               const SizedBox(height: 18),
               Obx(() {
                 if (loginController.isLoading.value) {
-                  return const SizedBox(
-                    height: 48,
-                    child: Center(
-                      child: CircularProgressIndicator(),
-                    ),
-                  );
+                  return const Center(child: CircularProgressIndicator());
                 }
-                return CustomButton(
-                  text: 'Login',
-                  backgroundColor: const Color.fromARGB(255, 9, 90, 28),
-                  onPressed: () {
-                    loginController.login();
-                  },
+                return Column(
+                  children: [
+                    CustomButton(
+                      text: 'Login',
+                      backgroundColor: const Color.fromARGB(255, 9, 90, 28),
+                      onPressed: loginController.login,
+                    ),
+                    const SizedBox(height: 12),
+                    GoogleSignInButton(
+                      onPressed: loginController.loginWithGoogle,
+                    ),
+                  ],
                 );
               }),
             ],

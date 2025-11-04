@@ -1,61 +1,38 @@
 import 'package:get/get.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationController extends GetxController {
-  FirebaseMessaging messaging = FirebaseMessaging.instance;
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
+  final FirebaseMessaging _messaging = FirebaseMessaging.instance;
+  var lastMessage = "Waiting for messages...".obs;
+  var token = "".obs;
 
   @override
   void onInit() {
     super.onInit();
-    _initNotification();
+    _initFCM();
   }
 
-  Future<void> _initNotification() async {
+  Future<void> _initFCM() async {
+    // Request permission
+    NotificationSettings settings = await _messaging.requestPermission();
+    print("🔔 Permission: ${settings.authorizationStatus}");
 
-    await messaging.requestPermission();
+    // Get token
+    token.value = await _messaging.getToken() ?? "No token";
+    print("📱 Token: ${token.value}");
 
-    String? token = await messaging.getToken();
-    print("🔑 FCM Token: $token");
-
-    // Setup notifikasi lokal
-    const AndroidInitializationSettings initializationSettingsAndroid =
-        AndroidInitializationSettings('@mipmap/ic_launcher');
-    const InitializationSettings initializationSettings =
-        InitializationSettings(android: initializationSettingsAndroid);
-
-    await flutterLocalNotificationsPlugin.initialize(initializationSettings);
-
-    // Saat pesan diterima ketika app aktif
+    // Foreground message listener
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      print("📩 Pesan: ${message.notification?.title}");
-      _showNotification(message);
+      print("📨 Foreground: ${message.notification?.title}");
+      lastMessage.value =
+          "${message.notification?.title ?? 'No title'}\n${message.notification?.body ?? 'No body'}";
     });
-  }
 
-  Future<void> _showNotification(RemoteMessage message) async {
-    RemoteNotification? notification = message.notification;
-    AndroidNotification? android = message.notification?.android;
-
-    if (notification != null && android != null) {
-    AndroidNotificationDetails androidPlatformChannelSpecifics =
-          AndroidNotificationDetails(
-        'default_channel',
-        'Notifikasi Umum',
-        importance: Importance.high,
-        priority: Priority.high,
-      );
-     NotificationDetails platformChannelSpecifics =
-          NotificationDetails(android: androidPlatformChannelSpecifics);
-
-      await flutterLocalNotificationsPlugin.show(
-        notification.hashCode,
-        notification.title,
-        notification.body,
-        platformChannelSpecifics,
-      );
-    }
+    // When opened from background
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      print("📲 Opened from background");
+      lastMessage.value =
+          "Opened: ${message.notification?.title ?? 'No title'}";
+    });
   }
 }
